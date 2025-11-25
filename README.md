@@ -8,3 +8,6 @@ Lombok para reduzir boilerplate de código
 H2 Database como banco de dados em memória
 
 Spring Data JPA para persistência
+
+
+<h3>Linkedln: https://www.linkedin.com/in/gabriel-oliveira-833a58373</h3>
