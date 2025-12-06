@@ -4,8 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,29 +15,35 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_category")
-public class Category implements Serializable {
+@Table(name = "tb_product")
+public class Product implements Serializable {
 
    @Id
    @GeneratedValue( strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String description;
+    private Double price;
+    private String imgUrl;
 
-    private Set<Product> products = new HashSet<>();
+    private Set<Category> categories = new  HashSet<>();
 
-    public Category() {
+    public Product() {
     }
 
-    public Category(Long id, String name) {
+    public Product(Long id, String name, String description, Double price, String imgUrl) {
         this.id = id;
         this.name = name;
+        this.description = description;
+        this.price = price;
+        this.imgUrl = imgUrl;
     }
 
     @Override
     public final boolean equals(Object o) {
-        if (!(o instanceof Category category)) return false;
+        if (!(o instanceof Product product)) return false;
 
-        return Objects.equals(getId(), category.getId());
+        return Objects.equals(getId(), product.getId());
     }
 
     @Override
