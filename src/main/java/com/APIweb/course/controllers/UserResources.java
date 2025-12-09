@@ -1,7 +1,7 @@
-package com.APIweb.course.resources;
+package com.APIweb.course.controllers;
 
-import com.APIweb.course.entities.Product;
-import com.APIweb.course.services.ProductService;
+import com.APIweb.course.entities.User;
+import com.APIweb.course.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/products")
-public class ProductResources {
+@RequestMapping(value = "/users")
+public class UserResources {
 
     @Autowired
-    private ProductService service;
+    private UserService service;
 
     @GetMapping
-    public ResponseEntity<List<Product>> findAll() {
-        List<Product> list = service.findAll();
+    public ResponseEntity<List<User>> findAll() {
+        List<User> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Product> findById(@PathVariable Long id) {
-        Product obj = service.findById(id);
+    public ResponseEntity<User> findById(@PathVariable Long id) {
+        User obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 }

@@ -1,4 +1,4 @@
-package com.APIweb.course.config;
+package com.APIweb.course.configuration;
 
 
 import com.APIweb.course.entities.*;
@@ -14,7 +14,7 @@ import java.util.Arrays;
 
 @Configuration
 @Profile("test")
-public class TestConfig implements CommandLineRunner {
+public class TestConfiguration implements CommandLineRunner {
 
     @Autowired
     private UserRepository userRepository;
