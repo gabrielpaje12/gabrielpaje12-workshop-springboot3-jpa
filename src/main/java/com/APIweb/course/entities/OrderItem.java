@@ -7,7 +7,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -54,6 +53,7 @@ public class OrderItem implements Serializable {
     public Double getSubTotal() {
         return price * quantity;
     }
+
 
     @Override
     public final boolean equals(Object o) {
