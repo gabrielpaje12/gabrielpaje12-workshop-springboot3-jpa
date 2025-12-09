@@ -52,6 +52,7 @@ public class Product implements Serializable {
         }
         return set;
     }
+
     @Override
     public final boolean equals(Object o) {
         if (!(o instanceof Product product)) return false;
