@@ -2,6 +2,7 @@ package com.APIweb.course.services;
 
 import com.APIweb.course.entities.Product;
 import com.APIweb.course.repositories.ProductRepository;
+import com.APIweb.course.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class ProductService {
 
     public Product findById(Long id) {
         Optional<Product> obj = repository.findById(id);
-        return obj.get();
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
 }

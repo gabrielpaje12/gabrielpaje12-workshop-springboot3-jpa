@@ -2,6 +2,7 @@ package com.APIweb.course.services;
 
 import com.APIweb.course.entities.Order;
 import com.APIweb.course.repositories.OrderRepository;
+import com.APIweb.course.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class OrderService {
 
     public Order findById(Long id) {
         Optional<Order> obj = repository.findById(id);
-        return obj.get();
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
 }
